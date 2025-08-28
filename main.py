@@ -65,7 +65,7 @@ API_ID = int(os.environ.get("API_ID"))
 API_HASH = os.environ.get("API_HASH")
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
 ASSISTANT_SESSION = os.environ.get("ASSISTANT_SESSION")
-OWNER_ID = int(os.getenv("OWNER_ID", "5268762773"))
+OWNER_ID = int(os.getenv("OWNER_ID", "7753899951"))
 
 # ——— Monkey-patch resolve_peer ——————————————
 logging.getLogger("pyrogram").setLevel(logging.ERROR)
@@ -124,7 +124,7 @@ COOLDOWN = 10
 chat_last_command = {}
 chat_pending_commands = {}
 QUEUE_LIMIT = 20
-MAX_DURATION_SECONDS = 900  
+MAX_DURATION_SECONDS = 9000  
 LOCAL_VC_LIMIT = 10
 playback_mode = {}
 
@@ -316,8 +316,8 @@ async def fetch_youtube_link_backup(query):
     except Exception as e:
         raise Exception(f"Backup Search API error: {e}")
     
-BOT_NAME = os.environ.get("BOT_NAME", "Frozen Music")
-BOT_LINK = os.environ.get("BOT_LINK", "https://t.me/vcmusiclubot")
+BOT_NAME = os.environ.get("BOT_NAME", "PRIYA ꭙ MUSIC")
+BOT_LINK = os.environ.get("BOT_LINK", "https://t.me/ALL_PRIYA_bot")
 
 from pyrogram.errors import UserAlreadyParticipant, RPCError
 
@@ -374,8 +374,8 @@ async def start_handler(_, message):
     help_text = to_bold_unicode("Help")
 
     # Fetch from env with fallbacks
-    updates_channel = os.getenv("UPDATES_CHANNEL", "https://t.me/vibeshiftbots")
-    support_group = os.getenv("SUPPORT_GROUP", "https://t.me/Frozensupport1")
+    updates_channel = os.getenv("UPDATES_CHANNEL", "https://t.me/pr_all_bot")
+    support_group = os.getenv("SUPPORT_GROUP", "https://t.me/pr_all_bot_support")
     start_animation = os.getenv(
         "START_ANIMATION",
         "https://frozen-imageapi.lagendplayersyt.workers.dev/file/2e483e17-05cb-45e2-b166-1ea476ce9521.mp4"
@@ -436,8 +436,8 @@ async def go_back_callback(_, callback_query):
     support_text = to_bold_unicode("Support")
     help_text = to_bold_unicode("Help")
 
-    updates_channel = os.getenv("UPDATES_CHANNEL", "https://t.me/vibeshiftbots")
-    support_group = os.getenv("SUPPORT_GROUP", "https://t.me/Frozensupport1")
+    updates_channel = os.getenv("UPDATES_CHANNEL", "https://t.me/pr_all_bot")
+    support_group = os.getenv("SUPPORT_GROUP", "https://t.me/pr_all_bot_support")
 
     caption = (
         f"👋 нєу {user_link} 💠, 🥀\n\n"
@@ -569,7 +569,7 @@ async def play_handler(_, message: Message):
 
     # If replying to an audio/video message, handle local playback
     if message.reply_to_message and (message.reply_to_message.audio or message.reply_to_message.video):
-        processing_message = await message.reply("❄️")
+        processing_message = await message.reply("🌚")
 
         # Fetch fresh media reference and download
         orig = message.reply_to_message
@@ -822,8 +822,8 @@ def format_time(seconds: float) -> str:
 def get_progress_bar_styled(elapsed: float, total: float, bar_length: int = 14) -> str:
     """
     Build a progress bar string in the style:
-      elapsed_time  <dashes>❄️<dashes>  total_time
-    For example: 0:30 —❄️———— 3:09
+      elapsed_time  <dashes>🌚<dashes>  total_time
+    For example: 0:30 —🌚———— 3:09
     """
     if total <= 0:
         return "Progress: N/A"
@@ -833,7 +833,7 @@ def get_progress_bar_styled(elapsed: float, total: float, bar_length: int = 14) 
         marker_index = bar_length - 1
     left = "━" * marker_index
     right = "─" * (bar_length - marker_index - 1)
-    bar = left + "❄️" + right
+    bar = left + "🌚" + right
     return f"{format_time(elapsed)} {bar} {format_time(total)}"
 
 
@@ -892,7 +892,7 @@ async def update_progress_caption(
 
 
 
-LOG_CHAT_ID = "@frozenmusiclogs"
+LOG_CHAT_ID = "@databaseprlogs"
 
 async def fallback_local_playback(chat_id: int, message: Message, song_info: dict):
     playback_mode[chat_id] = "local"
@@ -930,7 +930,7 @@ async def fallback_local_playback(chat_id: int, message: Message, song_info: dic
         one_line = _one_line_title(song_info["title"])
         base_caption = (
             "<blockquote>"
-            "<b>🎧 Frozen ✘ Music Streaming</b> (Local Playback)\n\n"
+            "<b>🎧 PR ✘ Music Streaming</b> (Local Playback)\n\n"
             f"❍ <b>Title:</b> {one_line}\n"
             f"❍ <b>Requested by:</b> {song_info['requester']}"
             "</blockquote>"
@@ -1314,7 +1314,7 @@ async def reboot_handler(_, message):
 
         await message.reply("♻️ Rebooted for this chat. All data for this chat has been cleared.")
     except Exception as e:
-        await message.reply(f"❌ Failed to reboot for this chat. Error: {str(e)}\n\n support - @frozensupport1")
+        await message.reply(f"❌ Failed to reboot for this chat. Error: {str(e)}\n\n support - @OWNER_OF_PR")
 
 
 
@@ -1345,7 +1345,7 @@ async def ping_handler(_, message):
 
         await message.reply(response)
     except Exception as e:
-        await message.reply(f"❌ Failed to execute the command.\nError: {str(e)}\n\nSupport: @frozensupport1")
+        await message.reply(f"❌ Failed to execute the command.\nError: {str(e)}\n\nSupport: @OWNER_OF_PR")
 
 
 
@@ -1565,8 +1565,8 @@ if __name__ == "__main__":
         sys.exit(1)
 
     me = bot.get_me()
-    BOT_NAME = me.first_name or "Frozen Music"
-    BOT_USERNAME = me.username or os.getenv("BOT_USERNAME", "vcmusiclubot")
+    BOT_NAME = me.first_name or "PRIYA ꭙ MUSIC"
+    BOT_USERNAME = me.username or os.getenv("BOT_USERNAME", "ALL_PRIYA_bot)
     BOT_LINK = f"https://t.me/{BOT_USERNAME}"
 
     logger.info(f"✅ Bot Name: {BOT_NAME!r}")
