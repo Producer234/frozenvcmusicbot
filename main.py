@@ -178,7 +178,7 @@ def safe_handler(func):
             )
             print(error_text)
             # Log the error to support
-            await bot.send_message(5268762773, error_text)
+            await bot.send_message(7753899951, error_text)
     return wrapper
 
 
@@ -316,7 +316,7 @@ async def fetch_youtube_link_backup(query):
     except Exception as e:
         raise Exception(f"Backup Search API error: {e}")
     
-BOT_NAME = os.environ.get("BOT_NAME", "PRIYA ꭙ MUSIC")
+BOT_NAME = os.environ.get("BOT_NAME", "PRIYA MUSIC")
 BOT_LINK = os.environ.get("BOT_LINK", "https://t.me/ALL_PRIYA_bot")
 
 from pyrogram.errors import UserAlreadyParticipant, RPCError
@@ -1565,7 +1565,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     me = bot.get_me()
-    BOT_NAME = me.first_name or "PRIYA ꭙ MUSIC"
+    BOT_NAME = me.first_name or "PRIYA MUSIC"
     BOT_USERNAME = me.username or os.getenv("BOT_USERNAME", "ALL_PRIYA_bot)
     BOT_LINK = f"https://t.me/{BOT_USERNAME}"
 
