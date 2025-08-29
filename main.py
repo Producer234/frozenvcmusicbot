@@ -316,7 +316,7 @@ async def fetch_youtube_link_backup(query):
     except Exception as e:
         raise Exception(f"Backup Search API error: {e}")
     
-BOT_NAME = os.environ.get("BOT_NAME", "PRIYA MUSIC")
+BOT_NAME = os.environ.get("BOT_NAME", "PRIYA")
 BOT_LINK = os.environ.get("BOT_LINK", "https://t.me/ALL_PRIYA_bot")
 
 from pyrogram.errors import UserAlreadyParticipant, RPCError
@@ -378,7 +378,7 @@ async def start_handler(_, message):
     support_group = os.getenv("SUPPORT_GROUP", "https://t.me/pr_all_bot_support")
     start_animation = os.getenv(
         "START_ANIMATION",
-        "https://frozen-imageapi.lagendplayersyt.workers.dev/file/2e483e17-05cb-45e2-b166-1ea476ce9521.mp4"
+        "https://filehosting.kustbotsweb.workers.dev/s/XbZIqjnxtliek92CjNKwiQ/tsm.mp4"
     )
 
     caption = (
@@ -645,7 +645,7 @@ async def play_handler(_, message: Message):
 
 async def process_play_command(message: Message, query: str):
     chat_id = message.chat.id
-    processing_message = await message.reply("❄️")
+    processing_message = await message.reply("🌚")
 
     # --- ensure assistant is in the chat before we queue/play anything ----
     status = await is_assistant_in_chat(chat_id)
@@ -726,14 +726,14 @@ async def process_play_command(message: Message, query: str):
         video_url, title, duration_iso, thumb = result
         if not video_url:
             await processing_message.edit(
-                "❌ Could not find the song. Try another query.\nSupport: @frozensupport1"
+                "❌ Could not find the song. Try another query.\nSupport: @PR_ALL_BOT_SUPPORT"
             )
             return
 
         secs = isodate.parse_duration(duration_iso).total_seconds()
         if secs > MAX_DURATION_SECONDS:
             await processing_message.edit(
-                "❌ Streams longer than 15 min are not allowed. If u are the owner of this bot contact @xyz09723 to upgrade your plan"
+                "❌ Streams longer than 15 min are not allowed. If u are the owner of this bot contact @OWNER_OF_PR to upgrade your plan"
             )
             return
 
@@ -822,8 +822,8 @@ def format_time(seconds: float) -> str:
 def get_progress_bar_styled(elapsed: float, total: float, bar_length: int = 14) -> str:
     """
     Build a progress bar string in the style:
-      elapsed_time  <dashes>🌚<dashes>  total_time
-    For example: 0:30 —🌚———— 3:09
+      elapsed_time  <dashes>😘<dashes>  total_time
+    For example: 0:30 —😘———— 3:09
     """
     if total <= 0:
         return "Progress: N/A"
@@ -833,7 +833,7 @@ def get_progress_bar_styled(elapsed: float, total: float, bar_length: int = 14) 
         marker_index = bar_length - 1
     left = "━" * marker_index
     right = "─" * (bar_length - marker_index - 1)
-    bar = left + "🌚" + right
+    bar = left + "😘" + right
     return f"{format_time(elapsed)} {bar} {format_time(total)}"
 
 
@@ -1164,7 +1164,7 @@ async def stop_handler(client, message):
         if "not in a call" in str(e).lower():
             await message.reply("❌ The bot is not currently in a voice chat.")
         else:
-            await message.reply(f"❌ An error occurred while leaving the voice chat: {str(e)}\n\nSupport: @frozensupport1")
+            await message.reply(f"❌ An error occurred while leaving the voice chat: {str(e)}\n\nSupport: @PR_ALL_BOT_SUPPORT")
         return
 
     # Clear the song queue
@@ -1565,7 +1565,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     me = bot.get_me()
-    BOT_NAME = me.first_name or "PRIYA MUSIC"
+    BOT_NAME = me.first_name or "PRIYA"
     BOT_USERNAME = me.username or os.getenv("BOT_USERNAME", "ALL_PRIYA_bot)
     BOT_LINK = f"https://t.me/{BOT_USERNAME}"
 
