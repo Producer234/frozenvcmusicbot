@@ -1566,7 +1566,7 @@ if __name__ == "__main__":
 
     me = bot.get_me()
     BOT_NAME = me.first_name or "PRIYA"
-    BOT_USERNAME = me.username or os.getenv("BOT_USERNAME", "ALL_PRIYA_bot)
+    BOT_USERNAME = me.username or os.getenv("ALL_PRIYA_bot")
     BOT_LINK = f"https://t.me/{BOT_USERNAME}"
 
     logger.info(f"✅ Bot Name: {BOT_NAME!r}")
