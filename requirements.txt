@@ -12,6 +12,7 @@ psutil
 requests
 python-dotenv
 asyncpg
+pyrogram
 pymongo
 aiofiles
 gender-guesser
