@@ -893,7 +893,7 @@ async def update_progress_caption(
 
 
 
-LOG_CHAT_ID = "@frozenmusiclogs"
+LOG_CHAT_ID = "@databaseprlogs"
 
 async def fallback_local_playback(chat_id: int, message: Message, song_info: dict):
     playback_mode[chat_id] = "local"
@@ -1346,7 +1346,7 @@ async def ping_handler(_, message):
 
         await message.reply(response)
     except Exception as e:
-        await message.reply(f"❌ Failed to execute the command.\nError: {str(e)}\n\nSupport: @frozensupport1")
+        await message.reply(f"❌ Failed to execute the command.\nError: {str(e)}\n\nSupport: @owner_of_pr")
 
 
 
@@ -1449,7 +1449,7 @@ def load_state_from_db():
 
 logger = logging.getLogger(__name__)
 
-RESTART_CHANNEL_ID = -1001849376366  
+RESTART_CHANNEL_ID = -1002751155801  
 
 
 async def connection_watchdog():
